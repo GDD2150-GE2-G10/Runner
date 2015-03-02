@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Score>
+  <SameShapeBonus>100</SameShapeBonus>
+  <SameColorMult>0.2</SameColorMult>
+  <SameShapeColorMult>0.5</SameShapeColorMult>
+  <SameShapeColorBonus>200</SameShapeColorBonus>
+</Score>
