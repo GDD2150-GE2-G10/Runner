@@ -1,15 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PickupScript : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+public class PickupScript : MonoBehaviour 
+{
+    public Shape shape { get; protected set; }
+    public Color color { get; protected set; }
 }

@@ -5,10 +5,13 @@ using System.IO;
 
 public class Settings : MonoBehaviour
 {
-    public static int PickupShapeBonus;
-    public static float PickupColorMult;
-    public static float PickupShapeColorMult;
-    public static int PickupShapeColorBonus;
+    //Score pickup settings
+    public static int pickupShapeBonus { get; protected set; }
+    public static float pickupColorMult { get; protected set; }
+    public static float pickupColorMultDur { get; protected set; }
+    public static int pickupShapeColorBonus { get; protected set; }
+    public static float pickupShapeColorMult { get; protected set; }
+    public static float pickupShapeColorMultDur { get; protected set; }
 
     public TextAsset XMLDoc;
 
@@ -17,12 +20,17 @@ public class Settings : MonoBehaviour
         using (TextReader reader = new StringReader(XMLDoc.text))
         {
             XDocument pickupSettings = XDocument.Load(reader);
-            XElement root = pickupSettings.Element("Score");
 
-            PickupShapeBonus = int.Parse(root.Element("SameShapeBonus").Value);
-            PickupShapeColorBonus = int.Parse(root.Element("SameShapeColorBonus").Value);
-            PickupColorMult = float.Parse(root.Element("SameColorMult").Value);
-            PickupShapeColorMult = float.Parse(root.Element("SameShapeColorMult").Value);
+            //read pickup settings
+            XElement root = pickupSettings.Element("Pickups").Element("Score");
+
+            //read score settings
+            pickupShapeBonus = int.Parse(root.Element("SameShapeBonus").Value);
+            pickupColorMult = float.Parse(root.Element("SameColorMult").Value);
+            pickupColorMultDur = float.Parse(root.Element("SameColorMultDur").Value);
+            pickupShapeColorBonus = int.Parse(root.Element("SameShapeColorBonus").Value);
+            pickupShapeColorMult = float.Parse(root.Element("SameShapeColorMult").Value);
+            pickupShapeColorMultDur = float.Parse(root.Element("SameShapeColorMultDur").Value);
         }
     }
 }
