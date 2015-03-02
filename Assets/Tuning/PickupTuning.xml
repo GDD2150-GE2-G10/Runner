@@ -5,7 +5,7 @@
 	  <SameColorMult>0.2</SameColorMult>
 	  <SameColorMultDur>2</SameColorMultDur>
 	  <SameShapeColorBonus>100</SameShapeColorBonus>
-	  <SameShapeColorMult>0.5</SameShapeColorMult>
-	  <SameShapeColorMultDur>6</SameShapeColorMultDur>
+	  <SameShapeColorMult>0.3</SameShapeColorMult>
+	  <SameShapeColorMultDur>4</SameShapeColorMultDur>
 	</Score>
 </Pickups>
