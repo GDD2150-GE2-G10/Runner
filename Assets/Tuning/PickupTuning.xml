@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Pickups>
+	<Score>
+	  <SameShapeBonus>100</SameShapeBonus>
+	  <SameColorMult>0.2</SameColorMult>
+	  <SameColorMultDur>2</SameColorMultDur>
+	  <SameShapeColorBonus>100</SameShapeColorBonus>
+	  <SameShapeColorMult>0.3</SameShapeColorMult>
+	  <SameShapeColorMultDur>4</SameShapeColorMultDur>
+	</Score>
+</Pickups>
