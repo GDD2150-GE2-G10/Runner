@@ -1,0 +1,12 @@
+C:\Users\Francesca\Documents\GitHub\Runner\obj\Debug\Assembly-CSharp-vs.csprojResolveAssemblyReference.cache
+C:\Users\Francesca\Documents\GitHub\Runner\Temp\bin\Debug\Assembly-CSharp.dll
+C:\Users\Francesca\Documents\GitHub\Runner\Temp\bin\Debug\Assembly-CSharp.pdb
+C:\Users\Francesca\Documents\GitHub\Runner\Temp\bin\Debug\UnityEditor.dll
+C:\Users\Francesca\Documents\GitHub\Runner\Temp\bin\Debug\UnityEngine.dll
+C:\Users\Francesca\Documents\GitHub\Runner\Temp\bin\Debug\UnityEngine.UI.dll
+C:\Users\Francesca\Documents\GitHub\Runner\Temp\bin\Debug\Mono.Cecil.dll
+C:\Users\Francesca\Documents\GitHub\Runner\Temp\bin\Debug\nunit.framework.dll
+C:\Users\Francesca\Documents\GitHub\Runner\Temp\bin\Debug\Unity.DataContract.dll
+C:\Users\Francesca\Documents\GitHub\Runner\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+C:\Users\Francesca\Documents\GitHub\Runner\obj\Debug\Assembly-CSharp.dll
+C:\Users\Francesca\Documents\GitHub\Runner\obj\Debug\Assembly-CSharp.pdb
