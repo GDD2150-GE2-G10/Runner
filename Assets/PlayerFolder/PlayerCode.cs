@@ -8,12 +8,12 @@ public class PlayerCode : MonoBehaviour
     
     float score = 0.0f;
 
-	GameObject currentObject;
+	public GameObject currentObject { get; protected set; }
     GameObject cube;
     GameObject sphere;
     GameObject pyramid;
 
-    Material currentMaterial;
+	Material currentMaterial;
     Material red;
     Material blue;
     Material green;
@@ -26,19 +26,22 @@ public class PlayerCode : MonoBehaviour
     {
         cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
         cube.transform.position = new Vector3(0, 0, 0);
-        cube.renderer.enabled = false;
+		cube.AddComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezePositionZ;
+		cube.SetActive (false);
 
         sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         sphere.transform.position = new Vector3(0, 0, 0);
-        sphere.renderer.enabled = false;
+		sphere.AddComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezePositionZ;
+		sphere.SetActive (false);
 
         pyramid = GameObject.CreatePrimitive(PrimitiveType.Capsule); //OH GOD WHY????
         pyramid.transform.position = new Vector3(0, 0, 0);
-        pyramid.renderer.enabled = false;
+		pyramid.AddComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezePositionZ; 
+		pyramid.SetActive (false); 
 
         currentObject = cube;
 		shape = Shape.Cube;
-        currentObject.renderer.enabled = true;
+		currentObject.SetActive (true); 
 
         red = Resources.Load("Cube_Mat_Red", typeof(Material)) as Material;
         green = Resources.Load("Cube_Mat_Green", typeof(Material)) as Material;
@@ -59,26 +62,42 @@ public class PlayerCode : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z) && currentObject != cube)
         {
             Debug.Log("Z key pressed\nCurrent object changed to : " + currentObject);
-            currentObject.renderer.enabled = false;
-            currentObject = cube;
+            /*currentObject.renderer.enabled = false; 
+			//currentObject.rigidbody.detectCollisions = false; 
             currentObject.renderer.enabled = true;
+			currentObject.rigidbody.detectCollisions = true; 
+			*/
+			currentObject.SetActive(false);
+			currentObject = cube;
 			shape = Shape.Cube;
+			currentObject.SetActive(true);	
         }
         else if (Input.GetKeyDown(KeyCode.X) && currentObject != sphere)
         {
             Debug.Log("X key pressed\nCurrent object changed to : " + currentObject);
-            currentObject.renderer.enabled = false;
-            currentObject = sphere;
+            /*currentObject.renderer.enabled = false;
+			currentObject.rigidbody.detectCollisions = false;
             currentObject.renderer.enabled = true;
+			currentObject.rigidbody.detectCollisions = true; 
+			*/
+			currentObject.SetActive(false);
+			currentObject = sphere;
 			shape = Shape.Sphere;
+			currentObject.SetActive(true); 
         }
         else if (Input.GetKeyDown(KeyCode.C) && currentObject != pyramid)
         {
             Debug.Log("C key pressed\nCurrent object changed to : " + currentObject);
-            currentObject.renderer.enabled = false;
-            currentObject = pyramid;
+           /* currentObject.renderer.enabled = false;
+			currentObject.rigidbody.detectCollisions = false;
+
             currentObject.renderer.enabled = true;
+			currentObject.rigidbody.detectCollisions = true; 
+			*/
+			currentObject.SetActive(false);
+			currentObject = pyramid;
 			shape = Shape.Pyramid;
+			currentObject.SetActive(true); 
         }
 
         if (Input.GetKeyDown(KeyCode.A) && currentMaterial != red)
