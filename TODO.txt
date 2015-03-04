@@ -1,0 +1,5 @@
+To Do:
+Powerups (Spawning/Collision hookup)
+
+To Fix:
+Jumping/Physics
