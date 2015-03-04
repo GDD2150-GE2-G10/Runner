@@ -29,7 +29,6 @@ public class BarrierSpawner : MonoBehaviour {
             {
                 float xRange = Random.Range(leftBound, rightBound);
                 spawnedBarrier = (GameObject)Instantiate(barrier);
-                Vector3 position = spawnedBarrier.transform.position;
                 spawnedBarrier.transform.position = new Vector3(xRange, heightLevelWithGround, distanceOutForSpawning);
             }
             
