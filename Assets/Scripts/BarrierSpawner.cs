@@ -16,8 +16,8 @@ public class BarrierSpawner : MonoBehaviour {
     float distanceOutForSpawning = 30f;
 
     void Start () {
-        leftBound = -(ground.transform.localScale.x - barrier.renderer.bounds.size.x) / 2;
-        rightBound = -leftBound;
+        leftBound = -10f;
+        rightBound = 10f;
     }
 
     void Update () {
