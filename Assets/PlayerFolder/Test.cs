@@ -10,12 +10,22 @@ public class Test : MonoBehaviour {
     int counter;
     bool canJump = true;    
     //private Vector3 rayHitWorldPosition;
-  // public Transform cube; 
+  // public Transform cube;
+  
+	AudioClip jumpSound;
+	
+	private AudioSource audioSource;
 
 	// Use this for initialization
 	void Start () 
     {
-		GetComponent<PlayerCode> (); 
+		GetComponent<PlayerCode> ();
+		
+		jumpSound = Resources.Load("SFX/Jump", typeof (AudioClip)) as AudioClip;
+	}
+	
+	void Awake() {
+		audioSource = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -42,6 +52,8 @@ public class Test : MonoBehaviour {
 
             counter = 110; 
             canJump = false;
+			
+			audioSource.PlayOneShot(jumpSound, 0.5f);
         }
 
         if (canJump == false)

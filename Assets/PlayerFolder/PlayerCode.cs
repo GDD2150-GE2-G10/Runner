@@ -17,7 +17,14 @@ public class PlayerCode : MonoBehaviour
     Material red;
     Material blue;
     Material green;
-
+	
+	AudioClip powerupColor;
+	AudioClip powerupShape;
+	AudioClip powerupBoth;
+	AudioClip deathSound;
+	
+	private AudioSource audioSource;
+	
     public Shape shape { get; protected set; }
     public Color color { get; protected set; }
 
@@ -54,7 +61,17 @@ public class PlayerCode : MonoBehaviour
         pyramid.renderer.material = currentMaterial;
 
 		color = Color.Red;
+		
+		powerupColor = Resources.Load("SFX/Jump", typeof(AudioClip)) as AudioClip;
+		powerupShape = Resources.Load("SFX/PowerupPickup", typeof(AudioClip)) as AudioClip;
+		powerupBoth = Resources.Load("SFX/PowerupPickup", typeof(AudioClip)) as AudioClip;
+		
+		deathSound = Resources.Load("SFX/Death", typeof(AudioClip)) as AudioClip;
     }
+	
+	void Awake() {
+		audioSource = GetComponent<AudioSource>();
+	}
 
     // Update is called once per frame
     void Update()
@@ -148,11 +165,16 @@ public class PlayerCode : MonoBehaviour
                         scoreMult += Settings.pickupShapeColorMult;     //all perfect match values are additive
                         scoreMultDur += Settings.pickupShapeColorMultDur;
                         score += (Settings.pickupShapeBonus + Settings.pickupShapeColorBonus) * scoreMult;
-                    }
+						audioSource.PlayOneShot(powerupBoth, 0.5f);
+                    } else {
+						audioSource.PlayOneShot(powerupColor, 0.5f);
+					}
                 }
 
-                else if (pickup.shape == shape)
+                else if (pickup.shape == shape) {
                     score += Settings.pickupShapeBonus;
+					audioSource.PlayOneShot(powerupShape, 0.5f);
+				}
 
                 break;
             default:
