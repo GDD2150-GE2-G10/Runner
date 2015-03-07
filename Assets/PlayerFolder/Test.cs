@@ -5,18 +5,18 @@ using System.Collections;
 public class Test : MonoBehaviour {
     Vector3 mouseCoords;
     public float speed;
-    int counter;
-	
-    bool canJump = true;    
-    //private Vector3 rayHitWorldPosition;
-  // public Transform cube;
-  
-    bool canJump = true;  
+    int counter;	
+    bool canJump = true; 
 	PlayerCode playerRef;
 
 	// Use this for initialization
+<<<<<<< HEAD
 	void Start ()
     	{
+=======
+	void Start () 
+    {
+>>>>>>> 13b0893e66da8857f8e5bfe87a69064eb44d15e5
 		GetComponent<PlayerCode> ();
 	}
 	
