@@ -15,16 +15,12 @@ public class Test : MonoBehaviour {
 	PlayerCode playerRef;
 
 	// Use this for initialization
-	void Start () 
-<<<<<<< HEAD
+	void Start ()
     	{
-=======
-    {
 		GetComponent<PlayerCode> ();
 	}
 	
 	void Awake() {
->>>>>>> 5473a5e9df6232bd5c001f556a57371fada45f0d
 		playerRef = GetComponent<PlayerCode>(); 
 	}
 	
