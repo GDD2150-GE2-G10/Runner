@@ -15,7 +15,7 @@ public class Test : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
     {
-        GetComponent<Rigidbody>(); 
+	    
 	}
 	
 	// Update is called once per frame
@@ -28,6 +28,7 @@ public class Test : MonoBehaviour {
        // whateverYouWant = Camera.main.ScreenToWorldPoint(whateverYouWant);
        // transform.position = Vector3.Lerp(transform.position, whateverYouWant, speed * Time.deltaTime); 
         rigidbody.freezeRotation = true;
+
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
       
@@ -37,17 +38,14 @@ public class Test : MonoBehaviour {
         }
 
         float t = 0;
-        t = Time.fixedDeltaTime * speed;
+        t = Time.deltaTime * speed;
         transform.position = Vector3.Lerp(transform.position, mouseCoords, t);
 
         
-        if (Input.GetMouseButtonDown(0) && canJump == true)
+        if (Input.GetKeyDown("space") && canJump == true)
         {
-            int jump = 450;
-            //transform.position += new Vector3(0, 4, 0);
-            rigidbody.AddForce(transform.up * jump , ForceMode.Impulse);
-            //rigidbody.velocity = transform.TransformDirection(new Vector3(0, 9, 50));
-            counter = 110; 
+            transform.position += new Vector3(0, 2, 0);  
+            counter = 40; 
             canJump = false;
         }
 
