@@ -10,14 +10,10 @@ public class Test : MonoBehaviour {
 	PlayerCode playerRef;
 
 	// Use this for initialization
-<<<<<<< HEAD
-	void Start ()
-    	{
-=======
 	void Start () 
     {
->>>>>>> 13b0893e66da8857f8e5bfe87a69064eb44d15e5
 		GetComponent<PlayerCode> ();
+       
 	}
 	
 	void Awake() {
@@ -28,6 +24,7 @@ public class Test : MonoBehaviour {
 	void Update ()
 	{
 		playerRef.currentObject.rigidbody.freezeRotation = true;
+        playerRef.currentObject.rigidbody.useGravity = true; 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
       
@@ -40,13 +37,13 @@ public class Test : MonoBehaviour {
         t = Time.fixedDeltaTime * speed;
 		playerRef.currentObject.transform.position = Vector3.Lerp(playerRef.currentObject.transform.position, mouseCoords, t);
         
-        if (Input.GetKeyDown("space") && canJump == true)
+        if (Input.GetMouseButtonDown(0) && canJump == true)
         {
-            int jump = 450;
-           	playerRef.currentObject.rigidbody.AddForce(transform.up * jump , ForceMode.Impulse);
-
-            counter = 110; 
-            canJump = false;
+                int jump = 8;
+                playerRef.currentObject.rigidbody.AddForce(transform.up * jump, ForceMode.Impulse);
+                // playerRef.currentObject.transform.position = new Vector3(0, 3, 0); 
+                counter = 100;
+                canJump = false;
         }
 
         if (canJump == false)
