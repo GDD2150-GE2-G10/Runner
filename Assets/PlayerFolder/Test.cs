@@ -6,12 +6,25 @@ public class Test : MonoBehaviour {
     Vector3 mouseCoords;
     public float speed;
     int counter;
+	
+    bool canJump = true;    
+    //private Vector3 rayHitWorldPosition;
+  // public Transform cube;
+  
     bool canJump = true;  
 	PlayerCode playerRef;
 
 	// Use this for initialization
 	void Start () 
+<<<<<<< HEAD
     	{
+=======
+    {
+		GetComponent<PlayerCode> ();
+	}
+	
+	void Awake() {
+>>>>>>> 5473a5e9df6232bd5c001f556a57371fada45f0d
 		playerRef = GetComponent<PlayerCode>(); 
 	}
 	
