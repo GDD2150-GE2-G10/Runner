@@ -77,44 +77,31 @@ public class PlayerCode : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Z) && currentObject != cube)
-        {
-            Debug.Log("Z key pressed\nCurrent object changed to : " + currentObject);
-            /*currentObject.renderer.enabled = false; 
-			//currentObject.rigidbody.detectCollisions = false; 
-            currentObject.renderer.enabled = true;
-			currentObject.rigidbody.detectCollisions = true; 
-			*/
+		{
+			cube.SetActive(true); 
+			cube.rigidbody.velocity = currentObject.rigidbody.velocity;
+			cube.transform.position = currentObject.transform.position;
 			currentObject.SetActive(false);
 			currentObject = cube;
 			shape = Shape.Cube;
-			currentObject.SetActive(true);	
         }
         else if (Input.GetKeyDown(KeyCode.X) && currentObject != sphere)
-        {
-            Debug.Log("X key pressed\nCurrent object changed to : " + currentObject);
-            /*currentObject.renderer.enabled = false;
-			currentObject.rigidbody.detectCollisions = false;
-            currentObject.renderer.enabled = true;
-			currentObject.rigidbody.detectCollisions = true; 
-			*/
+		{
+			sphere.SetActive(true); 
+			sphere.rigidbody.velocity = currentObject.rigidbody.velocity;
+			sphere.transform.position = currentObject.transform.position;
 			currentObject.SetActive(false);
 			currentObject = sphere;
 			shape = Shape.Sphere;
-			currentObject.SetActive(true); 
         }
         else if (Input.GetKeyDown(KeyCode.C) && currentObject != pyramid)
-        {
-            Debug.Log("C key pressed\nCurrent object changed to : " + currentObject);
-           /* currentObject.renderer.enabled = false;
-			currentObject.rigidbody.detectCollisions = false;
-
-            currentObject.renderer.enabled = true;
-			currentObject.rigidbody.detectCollisions = true; 
-			*/
+		{
+			pyramid.SetActive(true); 
+			pyramid.rigidbody.velocity = currentObject.rigidbody.velocity;
+			pyramid.transform.position = currentObject.transform.position;
 			currentObject.SetActive(false);
 			currentObject = pyramid;
 			shape = Shape.Pyramid;
-			currentObject.SetActive(true); 
         }
 
         if (Input.GetKeyDown(KeyCode.A) && currentMaterial != red)
