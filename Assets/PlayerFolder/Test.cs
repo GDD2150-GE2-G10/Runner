@@ -9,15 +9,15 @@ public class Test : MonoBehaviour {
     bool canJump = true; 
 	PlayerCode playerRef;
 
+	AudioClip jumpSound;
+	AudioSource audioSource;
+
 	// Use this for initialization
 	void Start () 
     {
-		GetComponent<PlayerCode> ();
-       
-	}
-	
-	void Awake() {
-		playerRef = GetComponent<PlayerCode>(); 
+		playerRef = GetComponent<PlayerCode> ();
+		audioSource = GetComponent<AudioSource> ();
+		jumpSound = Resources.Load<AudioClip> ("SFX/Jump");
 	}
 	
 	// Update is called once per frame
@@ -41,9 +41,9 @@ public class Test : MonoBehaviour {
         {
                 int jump = 8;
                 playerRef.currentObject.rigidbody.AddForce(transform.up * jump, ForceMode.Impulse);
-                // playerRef.currentObject.transform.position = new Vector3(0, 3, 0); 
                 counter = 100;
                 canJump = false;
+				audioSource.PlayOneShot(jumpSound, 0.5f);
         }
 
         if (canJump == false)
