@@ -15,7 +15,7 @@ public class BarrierSpawner : MonoBehaviour {
     public Material[] colors;
 
     private const int RANDOM_RANGE_MAX = 100;
-    private const int POWERUP_THRESHOLD = 25;
+    private const int POWERUP_THRESHOLD = 35;
     private bool spawnPowerup = false;
 
     float timeElapsed = 0;
@@ -63,7 +63,7 @@ public class BarrierSpawner : MonoBehaviour {
                 if (spawnPowerup) {
                     spawnedPowerup = (GameObject)Instantiate(shapes[Random.Range(0, 3)]);
                     spawnedPowerup.renderer.material = colors[Random.Range(0, 3)];
-                    spawnedPowerup.transform.position = new Vector3(xRange,heightLevelWithGround + 2, distanceOutForSpawning);
+                    spawnedPowerup.transform.position = new Vector3(xRange,heightLevelWithGround + 1.5f, distanceOutForSpawning);
                 }
             }
             
