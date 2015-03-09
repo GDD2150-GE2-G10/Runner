@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Tuning>
+	<Pickups>
+		<Score>
+		  <SameShapeBonus>100</SameShapeBonus>
+		  <SameColorMult>0.2</SameColorMult>
+		  <SameColorMultDur>2</SameColorMultDur>
+		  <SameShapeColorBonus>100</SameShapeColorBonus>
+		  <SameShapeColorMult>0.3</SameShapeColorMult>
+		  <SameShapeColorMultDur>4</SameShapeColorMultDur>
+		</Score>
+		<Spawning>
+			<SpawnChance>35</SpawnChance>
+		</Spawning>
+	</Pickups>
+	<Player>
+		<JumpForce>7</JumpForce>
+		<MoveSpeed>0.5</MoveSpeed>
+	</Player>
+	<Barrier>
+		<MoveSpeed>0.5</MoveSpeed>
+		<SpawnDelay>0.5</SpawnDelay>
+	</Barrier>
+</Tuning>

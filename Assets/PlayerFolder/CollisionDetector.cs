@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class CollisionDetector : MonoBehaviour {
@@ -19,13 +19,13 @@ public class CollisionDetector : MonoBehaviour {
 			
 				if (pickup.color.ToString().ToLower() == color)   //calculate the mult first
 				{
-					Globals.scoreMult += Tuning.pickupColorMult;
-					Globals.scoreMultDur += Tuning.pickupColorMultDur;
+					Globals.scoreMult += Tuning.PICKUP_COLOR_MULT;
+					Globals.scoreMultDur += Tuning.PICKUP_COLOR_MULT_DUR;
 					if (pickup.shape.ToString().ToLower() == shape)   //test for perfect match
 					{
-						Globals.scoreMult += Tuning.pickupShapeColorMult;     //all perfect match values are additive
-						Globals.scoreMultDur += Tuning.pickupShapeColorMultDur;
-						Globals.score += (Tuning.pickupShapeBonus + Tuning.pickupShapeColorBonus) * Globals.scoreMult;
+						Globals.scoreMult += Tuning.PICKUP_SHAPE_COLOR_MULT;     //all perfect match values are additive
+						Globals.scoreMultDur += Tuning.PICKUP_SHAPE_COLOR_MULT_DUR;
+						Globals.score += (Tuning.PICKUP_SHAPE_BONUS + Tuning.PICKUP_SHAPE_COLOR_BONUS) * Globals.scoreMult;
 						Globals.playerRef.GetComponent<AudioSource>().PlayOneShot(Globals.powerupBoth, 0.5f);
 					} 
 					else 
@@ -33,7 +33,7 @@ public class CollisionDetector : MonoBehaviour {
 				}
 				
 				else if (pickup.shape.ToString().ToLower() == shape) {
-					Globals.score += Tuning.pickupShapeBonus;
+					Globals.score += Tuning.PICKUP_SHAPE_BONUS;
 					Globals.playerRef.GetComponent<AudioSource>().PlayOneShot(Globals.powerupShape, 0.5f);
 				}
 

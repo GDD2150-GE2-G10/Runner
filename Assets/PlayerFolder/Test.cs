@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 
@@ -44,8 +44,7 @@ public class Test : MonoBehaviour {
         
         if (Input.GetMouseButtonDown(0) && canJump == true)
         {
-                int jump = 7;
-                playerRef.currentObject.rigidbody.AddForce(transform.up * jump, ForceMode.Impulse);
+                playerRef.currentObject.rigidbody.AddForce(transform.up * Tuning.PLAYER_JUMP_FORCE, ForceMode.Impulse);
                 canJump = false;
 				audioSource.PlayOneShot(jumpSound, 0.5f);
         }

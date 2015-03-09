@@ -3,11 +3,6 @@ using System.Collections;
 
 public class PlayerCode : MonoBehaviour
 {
-    float scoreMult = 1.0f;
-    float scoreMultDur = 0.0f;
-    
-    float score = 0.0f;
-
 	public GameObject currentObject { get; protected set; }
     GameObject cube;
     GameObject sphere;
