@@ -8,10 +8,15 @@ public class CollisionDetector : MonoBehaviour {
         string shape = GetShape(name);
         string collided = collision.gameObject.tag.ToLower();
 
+        Debug.Log(collision.gameObject.name);
+
         switch (collided)
         {
             case "barrier":
-                Debug.Log("Dead");
+                //Debug.Log("Dead");
+                break;
+            case "powerup":
+                Debug.Log("Powerup");
                 break;
         }
     }
