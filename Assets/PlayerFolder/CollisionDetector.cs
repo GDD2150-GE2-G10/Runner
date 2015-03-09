@@ -13,9 +13,11 @@ public class CollisionDetector : MonoBehaviour {
             case "barrier":
                 //Destroy(gameObject);
                 break;
-            case "powerup":
+            case "powerup":				
                 Destroy(collision.gameObject);
-                break;
+				break;
+			default:
+				break;
         }
     }
 
