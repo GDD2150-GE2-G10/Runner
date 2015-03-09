@@ -25,7 +25,7 @@ public class BarrierSpawner : MonoBehaviour {
     float leftBound;
     float rightBound;
     float heightLevelWithGround = 0.75f;
-    float distanceOutForSpawning = 30f;
+    float distanceOutForSpawning = 80f;
 
     void Start () {
         leftBound = -6f;

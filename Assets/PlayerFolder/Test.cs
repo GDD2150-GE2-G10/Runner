@@ -39,9 +39,9 @@ public class Test : MonoBehaviour {
         
         if (Input.GetMouseButtonDown(0) && canJump == true)
         {
-                int jump = 8;
+                int jump = 7;
                 playerRef.currentObject.rigidbody.AddForce(transform.up * jump, ForceMode.Impulse);
-                counter = 100;
+                counter = 85;
                 canJump = false;
 				audioSource.PlayOneShot(jumpSound, 0.5f);
         }
