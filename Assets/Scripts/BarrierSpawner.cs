@@ -16,8 +16,8 @@ public class BarrierSpawner : MonoBehaviour {
     float distanceOutForSpawning = 30f;
 
     void Start () {
-        leftBound = -10f;
-        rightBound = 10f;
+        leftBound = -6f;
+        rightBound = 6f;
     }
 
     void Update () {

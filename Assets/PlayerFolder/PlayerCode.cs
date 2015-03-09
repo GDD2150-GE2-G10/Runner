@@ -11,7 +11,7 @@ public class PlayerCode : MonoBehaviour
 	public GameObject currentObject { get; protected set; }
     GameObject cube;
     GameObject sphere;
-    GameObject pyramid;
+    GameObject capsule;
 
 	Material currentMaterial;
     Material red;
@@ -35,21 +35,23 @@ public class PlayerCode : MonoBehaviour
         cube.transform.position = new Vector3(0, 0, 0);
 		cube.AddComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezePositionZ;
 		cube.SetActive (false);
+        cube.AddComponent<CollisionDetector>();
 
         sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         sphere.transform.position = new Vector3(0, 0, 0);
 		sphere.AddComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezePositionZ;
-		sphere.SetActive (false);
+        sphere.SetActive (false);
+        sphere.AddComponent<CollisionDetector>();
 
-        pyramid = GameObject.CreatePrimitive(PrimitiveType.Capsule); //OH GOD WHY????
-        pyramid.transform.position = new Vector3(0, 0, 0);
-		pyramid.AddComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezePositionZ; 
-		pyramid.SetActive (false); 
+        capsule = GameObject.CreatePrimitive(PrimitiveType.Capsule); //OH GOD WHY????
+        capsule.transform.position = new Vector3(0, 0, 0);
+		capsule.AddComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezePositionZ; 
+        capsule.SetActive (false); 
+        capsule.AddComponent<CollisionDetector>();
 
         currentObject = cube;
 		shape = Shape.Cube;
-		currentObject.SetActive (true); 
-
+		currentObject.SetActive (true);
         red = Resources.Load("Cube_Mat_Red", typeof(Material)) as Material;
         green = Resources.Load("Cube_Mat_Green", typeof(Material)) as Material;
         blue = Resources.Load("Cube_Mat_Blue", typeof(Material)) as Material;
@@ -58,7 +60,7 @@ public class PlayerCode : MonoBehaviour
 		Debug.Log(currentObject.renderer.material);
 		cube.renderer.material = currentMaterial;
         sphere.renderer.material = currentMaterial;
-        pyramid.renderer.material = currentMaterial;
+        capsule.renderer.material = currentMaterial;
 
 		color = Color.Red;
 		
@@ -92,16 +94,16 @@ public class PlayerCode : MonoBehaviour
 			sphere.transform.position = currentObject.transform.position;
 			currentObject.SetActive(false);
 			currentObject = sphere;
-			shape = Shape.Sphere;
+            shape = Shape.Sphere;
         }
-        else if (Input.GetKeyDown(KeyCode.C) && currentObject != pyramid)
+        else if (Input.GetKeyDown(KeyCode.C) && currentObject != capsule)
 		{
-			pyramid.SetActive(true); 
-			pyramid.rigidbody.velocity = currentObject.rigidbody.velocity;
-			pyramid.transform.position = currentObject.transform.position;
+			capsule.SetActive(true); 
+			capsule.rigidbody.velocity = currentObject.rigidbody.velocity;
+			capsule.transform.position = currentObject.transform.position;
 			currentObject.SetActive(false);
-			currentObject = pyramid;
-			shape = Shape.Pyramid;
+			currentObject = capsule;
+            shape = Shape.Pyramid;
         }
 
         if (Input.GetKeyDown(KeyCode.A) && currentMaterial != red)
@@ -110,8 +112,7 @@ public class PlayerCode : MonoBehaviour
             currentObject.renderer.material = currentMaterial;
             cube.renderer.material = currentMaterial;
             sphere.renderer.material = currentMaterial;
-            pyramid.renderer.material = currentMaterial;
-            Debug.Log("A key pressed\nCurrent texture changed to: " + currentMaterial);
+            capsule.renderer.material = currentMaterial;
 			color = Color.Red;
         }
         else if (Input.GetKeyDown(KeyCode.S) && currentMaterial != green)
@@ -120,8 +121,7 @@ public class PlayerCode : MonoBehaviour
             currentObject.renderer.material = currentMaterial;
             cube.renderer.material = currentMaterial;
             sphere.renderer.material = currentMaterial;
-            pyramid.renderer.material = currentMaterial;
-            Debug.Log("D key pressed\nCurrent texture changed to: " + currentMaterial);
+            capsule.renderer.material = currentMaterial;
 			color = Color.Green;
         }
         else if (Input.GetKeyDown(KeyCode.D) && currentMaterial != blue)
@@ -130,8 +130,7 @@ public class PlayerCode : MonoBehaviour
             currentObject.renderer.material = currentMaterial;
             cube.renderer.material = currentMaterial;
             sphere.renderer.material = currentMaterial;
-            pyramid.renderer.material = currentMaterial;
-            Debug.Log("S key pressed\nCurrent texture changed to: " + currentMaterial);
+            capsule.renderer.material = currentMaterial;
 			color = Color.Blue;
         }
     }
