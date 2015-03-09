@@ -3,7 +3,7 @@ using System.Collections;
 using System.Xml.Linq;
 using System.IO;
 
-public class Settings : MonoBehaviour
+public class Tuning : MonoBehaviour
 {
     //Score pickup settings
     public static int pickupShapeBonus { get; protected set; }

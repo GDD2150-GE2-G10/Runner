@@ -41,9 +41,9 @@ public class BarrierSpawner : MonoBehaviour {
         shapes [2] = spherePowerup;
 
         colors = new Material[3];
-        colors [0] = blue;
+        colors [0] = red;
         colors [1] = green;
-        colors [2] = red;
+        colors [2] = blue;
     }
 
     void Update () {
@@ -62,7 +62,9 @@ public class BarrierSpawner : MonoBehaviour {
                 
                 if (spawnPowerup) {
                     spawnedPowerup = (GameObject)Instantiate(shapes[Random.Range(0, 3)]);
-                    spawnedPowerup.renderer.material = colors[Random.Range(0, 3)];
+					int i = Random.Range(0, 3);	//pick a random color
+                    spawnedPowerup.renderer.material = colors[i];
+					spawnedPowerup.GetComponent<PickupScript>().color = (Color)i;
                     spawnedPowerup.transform.position = new Vector3(xRange,heightLevelWithGround + 1.5f, distanceOutForSpawning);
                 }
             }

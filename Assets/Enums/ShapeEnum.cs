@@ -2,5 +2,5 @@
 {
     Sphere,
     Cube,
-    Pyramid
+    Capsule
 }

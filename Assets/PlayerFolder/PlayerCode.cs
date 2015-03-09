@@ -18,13 +18,6 @@ public class PlayerCode : MonoBehaviour
     Material blue;
     Material green;
 	
-	AudioClip powerupColor;
-	AudioClip powerupShape;
-	AudioClip powerupBoth;
-	AudioClip deathSound;
-	
-	private AudioSource audioSource;
-	
     public Shape shape { get; protected set; }
     public Color color { get; protected set; }
 
@@ -63,16 +56,11 @@ public class PlayerCode : MonoBehaviour
         capsule.renderer.material = currentMaterial;
 
 		color = Color.Red;
-		
-		powerupColor = Resources.Load("SFX/Jump", typeof(AudioClip)) as AudioClip;
-		powerupShape = Resources.Load("SFX/PowerupPickup", typeof(AudioClip)) as AudioClip;
-		powerupBoth = Resources.Load("SFX/PowerupPickup", typeof(AudioClip)) as AudioClip;
-		
-		deathSound = Resources.Load("SFX/Death", typeof(AudioClip)) as AudioClip;
     }
 	
-	void Awake() {
-		audioSource = GetComponent<AudioSource>();
+	void Awake() 
+	{
+		Globals.playerRef = gameObject;
 	}
 
     // Update is called once per frame
@@ -103,7 +91,7 @@ public class PlayerCode : MonoBehaviour
 			capsule.transform.position = currentObject.transform.position;
 			currentObject.SetActive(false);
 			currentObject = capsule;
-            shape = Shape.Pyramid;
+            shape = Shape.Capsule;
         }
 
         if (Input.GetKeyDown(KeyCode.A) && currentMaterial != red)
@@ -132,39 +120,6 @@ public class PlayerCode : MonoBehaviour
             sphere.renderer.material = currentMaterial;
             capsule.renderer.material = currentMaterial;
 			color = Color.Blue;
-        }
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        switch (collision.gameObject.tag)
-        {
-            case "Pickup":
-                var pickup = collision.gameObject.GetComponent<PickupScript>();
-
-                if (pickup.color == color)   //calculate the mult first
-                {
-                    scoreMult += Settings.pickupColorMult;
-                    scoreMultDur += Settings.pickupColorMultDur;
-                    if (pickup.shape == shape)   //test for perfect match
-                    {
-                        scoreMult += Settings.pickupShapeColorMult;     //all perfect match values are additive
-                        scoreMultDur += Settings.pickupShapeColorMultDur;
-                        score += (Settings.pickupShapeBonus + Settings.pickupShapeColorBonus) * scoreMult;
-						audioSource.PlayOneShot(powerupBoth, 0.5f);
-                    } else {
-						audioSource.PlayOneShot(powerupColor, 0.5f);
-					}
-                }
-
-                else if (pickup.shape == shape) {
-                    score += Settings.pickupShapeBonus;
-					audioSource.PlayOneShot(powerupShape, 0.5f);
-				}
-
-                break;
-            default:
-                break;
         }
     }
 }
