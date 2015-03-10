@@ -13,6 +13,12 @@ public class CollisionDetector : MonoBehaviour {
             case "barrier":
                 //Destroy(gameObject);
 				Globals.playerRef.GetComponent<AudioSource>().PlayOneShot(Globals.deathSound, 0.5f);
+				Globals.startSpawning = false;
+				Globals.highScore = Mathf.Max(Globals.highScore, Globals.score);
+				Globals.score = 0;
+				Globals.scoreMult = 0;
+				Globals.scoreMultDur = 0;
+				Application.LoadLevel(Application.loadedLevel);
                 break;
             case "powerup":
 				var pickup = collision.gameObject.GetComponent("PickupScript") as PickupScript;

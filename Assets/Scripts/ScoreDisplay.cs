@@ -7,6 +7,6 @@ public class ScoreDisplay : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		guiText.text = "Score: " + Globals.score + "\nMult: " + Globals.scoreMult+ "\n" + Globals.scoreMultDur;
+		guiText.text = "Score: " + Globals.score + "\nMult: " + Globals.scoreMult+ "\n" + Mathf.CeilToInt(Globals.scoreMultDur);
 	}
 }

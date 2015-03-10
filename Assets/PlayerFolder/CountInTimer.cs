@@ -3,8 +3,6 @@ using System.Collections;
 
 public class CountInTimer : MonoBehaviour
 {
-	
-	bool finished = false;
 	int seconds = 4;
 	public GUIText guiText;
 	AudioClip beepLow, beepHigh;
@@ -31,7 +29,7 @@ public class CountInTimer : MonoBehaviour
 		} else {
 			CancelInvoke ("Countdown");
 			guiText.text = "";
-			finished = true;
+			Globals.startSpawning = true;
 		}
 	}
 }
